@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Registration Form</title>
+  <<script src="script.js">script.js</script>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -73,6 +74,16 @@
         }
    
   </style>
+  <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "oiQFr6hicqx_B_-pg",
+      });
+   })();
+</script>
 </head>
 <body>
   <div>
@@ -84,34 +95,14 @@
         </br>
     <label for="name">Name:</label>
     <input type="name" id="name" name="name" required>
-
     <label for="email">Email:</label>
     <input type="email" id="email" name="email" required>
    
     <label for="message">Message:</label>
     <input type="message" id="message" name='message' required>
      
-    <button class="cool-button"type="submit" value="send">Submit</button>
+    <button class="cool-button"type="submit" value="send" onclick="sendMail()">Submit</button>
   </form>
 </div>
-  <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js'></script>
-<script type='text/javascript'>
-   (function(){
-      emailjs.init("oiQFr6hicqx_B_-pg");
-   })
- <script type="text/javascript">
-        window.onload = function() {
-            document.getElementById('contact-form').addEventListener('submit', function(event) {
-                event.preventDefault();
-                // these IDs from the previous steps
-                emailjs.sendForm('content_service', 'content_form', this)
-                    .then(() => {
-                        console.log('SUCCESS!');
-                    }, (error) => {
-                        console.log('FAILED...', error);
-                    });
-            });
-        }
-    </script>
 </body>
 </html>
